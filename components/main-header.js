@@ -1,14 +1,16 @@
 import Link from 'next/link';
+import Image from 'next/image';
 
-// path stored under logoImg.src
+// next Image component automatically detects image size and other properties
+// and will automatically serve image in optimized format
 import logoImg from '@/assets/logo.png'
-// import using relative path
+// import css using relative path
 import classes from './main-header.module.css';
 
 function MainHeader(){
 	return <header className={classes.header}>
 		<Link className={classes.logo} href="/">
-			<img src={logoImg.src} alt="A plate with food on it"/>
+			<Image src={logoImg} alt="A plate with food on it" priority/>
 			NextLevel Food
 		</Link>
 		<nav className={classes.nav}>

@@ -1,6 +1,6 @@
-
 import MainHeader from '@/components/main-header';
 
+// css file losded into root layout is available on every page
 import './globals.css';
 
 export const metadata = {

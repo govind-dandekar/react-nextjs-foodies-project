@@ -1,10 +1,14 @@
 import Link from 'next/link'
 
 import MealsGrid from '@/components/meals/meals-grid';
-
 import classes from './page.module.css';
+import { getMeals } from '@/lib/meals';
 
 function MealsPage(){
+	// server components can be async and can be used with Promises
+	// meals data available at Build time so not async
+	const meals = getMeals();
+
 	return <>
 		<header className={classes.header}>
 			<h1>
@@ -18,7 +22,7 @@ function MealsPage(){
 			</p>
 		</header>
 		<main className={classes.name}>
-			<MealsGrid meals={[]}/>
+			<MealsGrid meals={meals}/>
 		</main>
 	</>
 }

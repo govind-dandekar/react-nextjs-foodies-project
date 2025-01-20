@@ -4,10 +4,10 @@ import MealsGrid from '@/components/meals/meals-grid';
 import classes from './page.module.css';
 import { getMeals } from '@/lib/meals';
 
-function MealsPage(){
+async function MealsPage(){
 	// server components can be async and can be used with Promises
 	// meals data available at Build time so not async
-	const meals = getMeals();
+	const meals = await getMeals();
 
 	return <>
 		<header className={classes.header}>

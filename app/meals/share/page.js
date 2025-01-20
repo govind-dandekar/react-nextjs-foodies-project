@@ -1,5 +1,9 @@
 function ShareMealPage(){
-	return <h1>Share Meal</h1>
+	return <>
+		<header>
+
+		</header>
+	</>
 }
 
 export default ShareMealPage;

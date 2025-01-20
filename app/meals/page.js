@@ -1,14 +1,21 @@
+import { Suspense } from 'react';
 import Link from 'next/link'
 
 import MealsGrid from '@/components/meals/meals-grid';
 import classes from './page.module.css';
 import { getMeals } from '@/lib/meals';
 
-async function MealsPage(){
-	// server components can be async and can be used with Promises
-	// meals data available at Build time so not async
+// component fx to fetch data
+// will trigger Suspense until loaded
+// content streamed in and rendered
+async function Meals(){
 	const meals = await getMeals();
 
+	return <MealsGrid meals={meals} />
+}
+
+function MealsPage(){
+	
 	return <>
 		<header className={classes.header}>
 			<h1>
@@ -22,7 +29,9 @@ async function MealsPage(){
 			</p>
 		</header>
 		<main className={classes.name}>
-			<MealsGrid meals={meals}/>
+			<Suspense fallback={<p className={classes.loading}>Fetching meals...</p>}>
+				<Meals />
+			</Suspense>
 		</main>
 	</>
 }

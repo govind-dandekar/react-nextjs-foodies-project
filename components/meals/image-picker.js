@@ -59,7 +59,6 @@ export default function ImagePicker({label, name}){
 				name={name}
 				ref={imageInput}
 				onChange={handleImageChange}
-				required
 			/>
 			{/* set type as button so it doesn't submit surrounding form */}
 			<button 

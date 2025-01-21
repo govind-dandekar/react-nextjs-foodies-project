@@ -7,9 +7,9 @@ import classes from './page.module.css';
 
 // evenry component stored in page.js gets params
 // [slugName]: url 
-function MealDetailsPage({ params }){
+async function MealDetailsPage({ params }){
 
-	const meal = getMeal(params.mealSlug);
+	const meal = await getMeal(params.mealSlug);
 
 	// if no meal found (bad url)
 	if (!meal){

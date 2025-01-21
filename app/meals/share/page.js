@@ -2,29 +2,11 @@ import classes from './page.module.css';
 
 import ImagePicker from '@/components/meals/image-picker';
 
+// by importing can convert component into a client if needed
+import { shareMeal } from '@/lib/actions';
+
 export default function ShareMealPage() {
   
-	// server side pattern -- must use async
-	// set as action on form; next will create req and send to server
-	// receive formData
-	async function shareMeal(formData){
-		//creates server action - fx guaranteed to exec on server
-		'use server' 
-		
-		// create form object
-		const meal = {
-			title: formData.get('title'),
-			summary: formData.get('summary'),
-			instructions: formData.get('instructions'),
-			image: formData.get('image'),
-			creator: formData.get('name'),
-			creator_email: formData.get('email')
-		}
-
-		// store data
-		console.log(meal);
-	}
-	
 	return (
     <>
       <header className={classes.header}>

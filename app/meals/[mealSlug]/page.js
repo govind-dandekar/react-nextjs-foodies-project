@@ -5,11 +5,27 @@ import { getMeal } from '@/lib/meals';
 
 import classes from './page.module.css';
 
+// receives same data page component receives as props
+export async function generateMetadata({params}){
+	const { mealSlug } = await params
+	const meal = getMeal(mealSlug); 
+	
+	if (!meal){
+		notFound();
+	}
+	
+	return {
+		title: meal.title,
+		description: meal.summary
+	}
+}
+
 // evenry component stored in page.js gets params
 // [slugName]: url 
 async function MealDetailsPage({ params }){
 
-	const meal = await getMeal(params.mealSlug);
+	const { mealSlug } = await params
+	const meal = getMeal(mealSlug); 
 
 	// if no meal found (bad url)
 	if (!meal){

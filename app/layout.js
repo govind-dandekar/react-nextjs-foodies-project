@@ -4,6 +4,7 @@ import MainHeader from '@/components/main-header/main-header';
 import './globals.css';
 import MainHeaderBackground from '@/components/main-header/main-header-background';
 
+// nextjs looking for metadata constants in pages and layouts
 export const metadata = {
   title: 'NextLevel Food',
   description: 'Delicious meals, shared by a food-loving community.',
